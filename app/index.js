@@ -15,7 +15,7 @@ const render = () => {
   ReactDOM.render(
     <Board
       sounds={sounds}
-      onTileClick={(newSound) => store.dispatch(toggleSound(newSound))}
+      onTileClick={(newSound) => () => store.dispatch(toggleSound(newSound))}
     />,
     app
   );

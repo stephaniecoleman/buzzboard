@@ -25,19 +25,18 @@ export const reducer = (state, action) => {
 
 // VIEW
 
-const Tile = (({title, sound, onTileClick}) =>
+const Tile = (({sound, onTileClick}) =>
   <div onClick={onTileClick(sound)}>
-    <h3>{title}</h3>
+    <h3>{sound.title}</h3>
   </div>
 ) 
 
 export const Board = ({sounds, onTileClick}) =>
   <div id='board'>
-    {sounds.map((sound, index) => {
+    {sounds.map((sound) => {
       return <Tile
-        key={index}
-        title={sound.title}
-        sound={sound.file}
+        key={sound.file}
+        sound={sound}
         onTileClick={onTileClick}
       />
     })}
