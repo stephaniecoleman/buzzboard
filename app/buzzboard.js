@@ -9,9 +9,9 @@ export const initialState = {
 
 // UPDATE
 
-export const toggleSound = (newSound) => {
+export const toggleSound = (newSound) => (
   { type: 'TOGGLE', newSound }
-}
+);
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -21,26 +21,31 @@ export const reducer = (state, action) => {
   default:
     return state;
   }
-}
+};
 
 // VIEW
 
-const Tile = (({sound, onTileClick}) =>
-  <div onClick={onTileClick(sound)}>
-    <h3>{sound.title}</h3>
-  </div>
-) 
+const Tile = ({sound, onTileClick}) => {
+  return (
+    <div onClick={onTileClick(sound)}>
+      <h3>{sound.title}</h3>
+    </div>
+  );
+};
 
-export const Board = ({sounds, onTileClick}) =>
-  <div id='board'>
-    {sounds.map((sound) => {
-      return <Tile
-        key={sound.file}
-        sound={sound}
-        onTileClick={onTileClick}
-      />
-    })}
-  </div>
+export const Board = ({sounds, onTileClick}) => {
+  return (
+    <div id='board'>
+      {sounds.map((sound) => {
+        return <Tile
+          key={sound.file}
+          sound={sound}
+          onTileClick={onTileClick}
+        />
+      })}
+    </div>
+  );
+};
 
 // WHERE DOES THIS STUFF GO?
 
@@ -49,4 +54,4 @@ const player = document.getElementById('player');
 const playSound = (sound) => () => {
   player.setAttribute('src', sound);
   player.play();
-}
+};

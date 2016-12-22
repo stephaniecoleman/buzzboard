@@ -1,0 +1,6 @@
+exports[`initialState matches snapshot 1`] = `
+Object {
+  "currentSound": null,
+  "isPlaying": false,
+}
+`;
