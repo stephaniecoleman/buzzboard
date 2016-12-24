@@ -1,0 +1,8 @@
+.board {
+  margin: 20px 50px;
+  text-align: center;
+}
+
+.boardTile {
+  margin: 10px;
+}

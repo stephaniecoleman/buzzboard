@@ -10,7 +10,16 @@ module.exports = {
       {
         loaders: ['babel-loader'],
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, 'app'),
+        include: path.resolve(__dirname, 'app')
+      },
+      // CSS loaders for CSS Module
+      {
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        test: /\.css/,
+        include: [
+          path.resolve(__dirname, 'app'),
+          path.join(__dirname, 'node_modules', 'purecss')
+        ]
       }
     ]
   },

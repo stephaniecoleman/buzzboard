@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './buzzboard.css';
 
 // MODEL
 
@@ -27,15 +28,17 @@ export const reducer = (state, action) => {
 
 const Tile = ({sound, onTileClick}) => {
   return (
-    <div onClick={onTileClick(sound)}>
-      <h3>{sound.title}</h3>
+    <div className='pure-u-1-3'>
+      <button onClick={onTileClick(sound)} className={styles.boardTile}>
+        {sound.title}
+      </button>
     </div>
   );
 };
 
 export const Board = ({sounds, onTileClick}) => {
   return (
-    <div id='board'>
+    <div id='board' className={styles.board}>
       {sounds.map((sound) => {
         return <Tile
           key={sound.file}
